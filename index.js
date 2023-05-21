@@ -1,16 +1,13 @@
-const dotenv = require("dotenv");
-// const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
 const express = require("express");
 const bp = require("body-parser");
 const app = express();
-//configring Dotenv::
-dotenv.config({ path: "./.env" });
+
 //connecting to DATABASE::
 require("./DB/conn");
 
 // Parsing Post Data To JSON::
-// app.use(express.json());
-// app.use(express.urlencoded());
+
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
@@ -19,15 +16,11 @@ app.use(require("./Router/auth"));
 
 // declaring Port::
 
-const port = process.env.PORT || 5000;
+app.get("/", (req, res) => {
+  res.send({ message: "Surinder Singh" });
+});
 
-if (process.env.NODE_ENV == "production") {
-  app.use(express.static("client/build"));
-  const path = require("path");
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
+const port = process.env.PORT || 5000;
 
 //Listing To The Server::
 app.listen(port, () => {
