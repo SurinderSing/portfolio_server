@@ -2,16 +2,7 @@ const dotenv = require("dotenv").config();
 const express = require("express");
 const bp = require("body-parser");
 const app = express();
-const cors = require("cors");
 
-// cors middleware ::
-
-const corsOpts = {
-  origin: "http://localhost:3000",
-  credentials: true,
-};
-
-app.use(cors(corsOpts));
 
 //connecting to DATABASE::
 require("./DB/conn");
