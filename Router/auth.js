@@ -1,4 +1,3 @@
-// const jwt = require("jsonwebtoken");
 const express = require("express");
 const router = express.Router();
 require("../DB/conn");
@@ -6,12 +5,10 @@ const bcrypt = require("bcryptjs");
 const authentication = require("../MiddleWares/Authentication");
 const User = require("../Models/userSchema");
 const cookieParser = require("cookie-parser");
-router.use(cookieParser());
-//Declairing middlewares ::
 
-// router.get("/register", (req, res) => {
-//   res.send(req.body);
-// });
+
+
+router.use(cookieParser());
 
 // use register using Async And Await::
 
