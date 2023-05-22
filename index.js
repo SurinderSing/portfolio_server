@@ -8,9 +8,6 @@ const cors = require("cors");
 
 const corsOpts = {
   origin: "http://localhost:3000",
-  optionsSuccessStatus: 200,
-  methods: ["GET", "POST", "UPDATE", "DELETE"],
-  allowedHeaders: ["Content-Type"],
   credentials: true,
 };
 
